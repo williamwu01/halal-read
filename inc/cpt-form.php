@@ -32,8 +32,9 @@ function create_service_post_type() {
         'supports' => array('title', 'editor', 'thumbnail', 'excerpt'),
         'template' => array(
             array('core/paragraph'),
-            array('core/button'),
+            // array('core/button'),
         ),
+				'template_lock'=>'all',
     );
 
     register_post_type('wp-book', $args);

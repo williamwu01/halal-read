@@ -180,3 +180,30 @@ if ( defined( 'JETPACK__VERSION' ) ) {
  * Customizer Post types.
  */
 require get_template_directory() . '/inc/cpt-form.php';
+
+
+function is_user_writer() {
+	$user = wp_get_current_user();
+	return in_array('writer', (array) $user->roles);
+}
+
+// Modify the Admin Query to Show Only Author's Posts
+function show_only_writer_posts($query) {
+	if (is_admin() && $query->is_main_query() && $query->get('post_type') == 'book') {
+			if (!current_user_can('edit_others_posts') && is_user_writer()) {
+					$query->set('author', get_current_user_id());
+			}
+	}
+}
+add_action('pre_get_posts', 'show_only_writer_posts');
+
+
+// Restrict Posts to Only Author's Posts in the Admin Dashboard
+function restrict_posts_for_writers($query) {
+	if (!is_admin() && $query->is_main_query() && $query->get('post_type') == 'book') {
+			if (!current_user_can('edit_others_posts') && is_user_writer()) {
+					$query->set('author', get_current_user_id());
+			}
+	}
+}
+add_action('pre_get_posts', 'restrict_posts_for_writers');
