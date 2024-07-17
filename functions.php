@@ -207,3 +207,4 @@ function restrict_posts_for_writers($query) {
 	}
 }
 add_action('pre_get_posts', 'restrict_posts_for_writers');
+
