@@ -53,7 +53,7 @@ function halal_setup() {
 			'footer' => esc_html__( 'Footer', 'halal' ),
 		)
 	);
-	add_action( 'init', 'register_nav_menus');
+	
 
 	/*
 		* Switch default core markup for search form, comment form, and comments
