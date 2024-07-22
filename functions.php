@@ -49,9 +49,11 @@ function halal_setup() {
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus(
 		array(
-			'menu-1' => esc_html__( 'Primary', 'halal' ),
+			'header' => esc_html__( 'Header Menu Location', 'halal' ),
+			'footer' => esc_html__( 'Footer', 'halal' ),
 		)
 	);
+	add_action( 'init', 'register_nav_menus');
 
 	/*
 		* Switch default core markup for search form, comment form, and comments

@@ -25,6 +25,13 @@
 				printf( esc_html__( 'Theme: %1$s by %2$s.', 'halal' ), 'halal', '<a href="http://underscores.me/">Underscores.me</a>' );
 				?>
 		</div><!-- .site-info -->
+
+		<div class="footer-menus"> <!-- .footer-menus -->
+			<nav id="footer-navigation" class="footer-navigation">
+				<?php wp_nav_menu( array( 'theme_location' => 'footer') ); ?>
+			</nav>
+    	</div>
+
 	</footer><!-- #colophon -->
 </div><!-- #page -->
 
