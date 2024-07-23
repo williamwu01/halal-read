@@ -210,3 +210,15 @@ function restrict_posts_for_writers($query) {
 }
 add_action('pre_get_posts', 'restrict_posts_for_writers');
 
+function update_comments_table_schema() {
+	global $wpdb;
+
+	// Check if the column already exists
+	$column_exists = $wpdb->get_results("SHOW COLUMNS FROM {$wpdb->prefix}comments LIKE 'rating'");
+
+	if (empty($column_exists)) {
+			// Add the new column
+			$wpdb->query("ALTER TABLE {$wpdb->prefix}comments ADD COLUMN rating TINYINT(1) NULL");
+	}
+}
+add_action('init', 'update_comments_table_schema');

@@ -1,5 +1,5 @@
 <?php
-function create_service_post_type()
+function create_post_type()
 {
     $labels = array(
         'name' => __('Books', 'post type general name'),
@@ -78,8 +78,46 @@ function create_service_post_type()
     );
 
     register_post_type('wp-testimonial', $args);
+
+		$labels = array(
+			'name' => __('Events', 'post type general name'),
+			'singular_name' => __('Event', 'post type singular name'),
+			'add_new' => __('Add New', 'Specialty'),
+			'add_new_item' => __('Add New Event'),
+			'edit_item' => __('Edit Event'),
+			'new_item' => __('New Event'),
+			'view_item' => __('View Event'),
+			'search_items' => __('Search Events'),
+			'not_found' => __('No events found'),
+			'not_found_in_trash' => __('No events found in Trash'),
+			'parent_item_colon' => '',
+			'menu_name' => 'Events'
+	);
+
+	$args = array(
+			'labels' => $labels,
+			'public' => true,
+			'publicly_queryable' => true,
+			'show_ui' => true,
+			'show_in_menu' => true,
+			'show_in_rest' => true,
+			'query_var' => true,
+			'rewrite' => array('slug' => 'event'),
+			'capability_type' => 'post',
+			'has_archive' => true,
+			'hierarchical' => false,
+			'menu_position' => null,
+			'menu_icon' => 'dashicons-admin-tools',
+			'supports' => array('title', 'editor', 'thumbnail', 'excerpt', 'comments'),
+			'template' => array(
+					array('core/paragraph'),
+					// array('core/button'),
+			),
+			'template_lock' => "all"
+	);
+	register_post_type('wp-event', $args);
 }
-add_action('init', 'create_service_post_type');
+add_action('init', 'create_post_type');
 
 
 function create_book_taxonomies()
@@ -118,3 +156,4 @@ function create_book_taxonomies()
 }
 
 add_action('init', 'create_book_taxonomies');
+
