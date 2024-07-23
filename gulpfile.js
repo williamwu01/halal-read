@@ -29,7 +29,7 @@ gulp.task('watch', function () {
 	// BrowserSync ***UPDATE PROXY & PORT***
 	browserSync.init({
 		open: 'external',
-		proxy: 'http://localhost/halal',
+		proxy: 'http://localhost/strange-inc',
 		port: 8080
 	});
 	gulp.watch('./**/*').on('change', browserSync.reload);
