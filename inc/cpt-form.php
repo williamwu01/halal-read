@@ -113,7 +113,7 @@ function create_post_type()
 					array('core/paragraph'),
 					// array('core/button'),
 			),
-			'template_lock' => "all"
+			
 	);
 	register_post_type('wp-event', $args);
 }
