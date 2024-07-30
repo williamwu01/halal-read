@@ -222,3 +222,4 @@ function update_comments_table_schema() {
 	}
 }
 add_action('init', 'update_comments_table_schema');
+

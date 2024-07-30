@@ -24,13 +24,13 @@ get_header();
             $file_title = $file['title'];
     ?>
             <div class="acf-file-download">
-                <a href="<?php echo esc_url( $file_url ); ?>" download><?php echo esc_html( $file_title ? $file_title : 'Download File' ); ?></a>
+                <a href="<?php echo esc_url( $file_url ); ?>" download><?php echo esc_html( 'Download PDF' ); ?></a>
             </div>
     <?php
         endif;
-
+				echo 'penis';
         // Display ACF Image Field
-        $cover_image = get_field('cover_image'); // Replace with your actual ACF image field name
+        $cover_image = get_field('cover_image'); 
         if ( $cover_image ):
             $cover_image_url = $cover_image['url'];
             $cover_image_alt = $cover_image['alt'];
@@ -48,6 +48,26 @@ get_header();
             )
         );
 
+				//ACF section button to copy link to navigate to goodread and amazon
+				/**
+ * Template part for displaying a copy link button for an ACF field.
+ */
+				function display_acf_copy_link_button() {
+					// Retrieve the file URL from ACF field.
+					$file_url = get_field('goodread'); // Replace with your actual ACF field name for the URL.
+
+					// Check if the file URL exists.
+					if ( $file_url ) : ?>
+							<div class="acf-file-copy">
+									<input type="text" value="<?php echo esc_url( $file_url ); ?>" id="acfFileUrl" readonly style="opacity: 0; position: absolute; left: -9999px;">
+									<a href="<?php echo esc_url( $file_url ) ?>" target="_blank">Copy Link</a>
+							</div>
+					<?php endif;
+				}
+				
+
+				// Use this function where you need to display the copy link button, for example in a template file:
+				display_acf_copy_link_button();
         if ( comments_open() || get_comments_number() ) :
             comments_template();
         endif;
