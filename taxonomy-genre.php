@@ -19,7 +19,7 @@
 
 
                         if ($image_url) {
-                            echo '<img src="' . esc_url($image_url["url"]) . '" alt="' . esc_attr($term_title) . '"/>';
+                            echo '<img src="' . esc_url($image_url["url"]) . '" alt="' . '"/>';
                         } else {
                             // Field does not exist or is empty
                             echo '<p>No custom field data available.</p>';
