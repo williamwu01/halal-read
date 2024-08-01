@@ -1,0 +1,44 @@
+// Center block
+@mixin center-block {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+// Column width with margin
+@mixin column-width($numberColumns: 3) {
+	width: map-get($columns, $numberColumns) - (($columns__margin * ($numberColumns - 1)) / $numberColumns);
+}
+
+@mixin max-center {
+	max-width: 1024px;
+	padding: 1rem;
+	margin: 0 auto;
+}
+
+@mixin container {
+	padding: 1rem;
+}
+
+@mixin flex-between {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+@mixin flex-center {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 10px;
+}
+
+@mixin flex-row-center {
+	@include flex-center();
+	flex-direction: row;
+}
+
+@mixin flex-col-center {
+	@include flex-center();
+	flex-direction: column;
+}

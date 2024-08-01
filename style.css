@@ -1,2 +1,67 @@
+/*!
+Theme Name: Halal Read
+Theme URI: http://underscores.me/
+Author: Baagi, Ritesh, Nikko, William
+Author URI: https://www.webteck.ca
+Version: 1.0.0
+Tested up to: 5.4
+Requires PHP: 5.6
+License: GNU General Public License v2 or later
+License URI: LICENSE
+Text Domain: halal-read
+Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
+Update URI: false
 
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned.
+
+Halal read is based on Underscores https://underscores.me/, (C) 2012-2020 Automattic, Inc.
+Underscores is distributed under the terms of the GNU GPL v2 or later.
+
+Normalizing styles have been helped along thanks to the fine work of
+Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
+*/
+#masthead {
+	background-color: green;
+}
+
+.menu-toggle {
+	position: relative;
+	width: 30px;
+	height: 20px;
+	cursor: pointer;
+}
+.menu-toggle span {
+	display: block;
+	position: absolute;
+	height: 4px;
+	width: 100%;
+	background-color: #333;
+	border-radius: 2px;
+	transition: all 0.3s ease;
+}
+.menu-toggle span::before, .menu-toggle span::after {
+	content: "";
+	position: absolute;
+	height: 4px;
+	width: 100%;
+	background-color: #333;
+	border-radius: 2px;
+	transition: all 0.3s ease;
+}
+.menu-toggle span::before {
+	top: -8px;
+}
+.menu-toggle span::after {
+	bottom: -8px;
+}
+.menu-toggle.active span {
+	background-color: transparent;
+}
+.menu-toggle.active span::before {
+	transform: translateY(8px) rotate(45deg);
+}
+.menu-toggle.active span::after {
+	transform: translateY(-8px) rotate(-45deg);
+}
 /*# sourceMappingURL=sass/style.css.map */

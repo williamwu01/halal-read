@@ -46,7 +46,11 @@
 		</div><!-- .site-branding -->
 
 		<nav id="site-navigation" class="main-navigation">
-			<button class="menu-toggle" aria-controls="header-menu" aria-expanded="false"><?php esc_html_e( 'header-menu', 'halal' ); ?></button>
+			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">
+						<span></span>
+						<span></span>
+						<span></span>
+					</button>
 			<?php
 			wp_nav_menu(
 				array(
