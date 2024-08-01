@@ -38,11 +38,13 @@
 				<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
 				<?php
 			endif;
+			
 			$halal_description = get_bloginfo( 'description', 'display' );
 			if ( $halal_description || is_customize_preview() ) :
 				?>
 				<p class="site-description"><?php echo $halal_description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
 			<?php endif; ?>
+			
 		</div><!-- .site-branding -->
 
 		<nav id="site-navigation" class="main-navigation">
@@ -59,5 +61,22 @@
 				)
 			);
 			?>
+
+			<?php
+			// Ensure myCRED plugin is active
+			if ( function_exists('mycred_get_users_balance') ) {
+			    // Get current user ID
+			    $user_id = get_current_user_id();
+
+			    // Get user's points balance
+			    $balance = mycred_get_users_balance( $user_id );
+
+			    // Display the balance
+			    echo '<div class="user-points">Your Points: ' . esc_html( $balance ) . '</div>';
+			} else {
+			    echo '<div class="user-points">myCRED plugin is not active.</div>';
+			}
+			?>
 		</nav><!-- #site-navigation -->
+		
 	</header><!-- #masthead -->
