@@ -223,9 +223,3 @@ function update_comments_table_schema() {
 }
 add_action('init', 'update_comments_table_schema');
 
-add_action('mycred_load_hooks', 'register_mycred_amazon_comment_hook');
-
-function register_mycred_amazon_comment_hook() {
-    include_once get_template_directory() . '/inc/mycred-custom-hooks.php';
-}
-
