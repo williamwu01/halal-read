@@ -104,4 +104,13 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 		padding-top: 2rem;
 	}
 }
+
+.event-list {
+	margin-top: 4rem;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-template-rows: repeat(2, 1fr);
+	grid-column-gap: 50px;
+	grid-row-gap: 50px;
+}
 /*# sourceMappingURL=sass/style.css.map */
