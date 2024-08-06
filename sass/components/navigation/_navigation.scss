@@ -1,0 +1,193 @@
+.main-navigation {
+	display: block;
+	width: 100%;
+	@include max-center;
+	@include container;
+	position: fixed;
+	bottom: 0;
+	z-index: 9999;
+	background-color: black;
+	filter: drop-shadow(0 -6mm 4mm #435758);
+	color: white;
+
+	@media screen and (min-width: $tablet_size) {
+		position: relative;
+		@include flex-between();
+		height: 5rem;
+
+		filter: none;
+	}
+
+	.menu-toggle {
+		@include flex-col-center();
+		cursor: pointer;
+		position: fixed;
+		bottom: 2rem;
+		right: 1rem;
+		background-color: transparent;
+		border: 0;
+
+		span {
+			width: 2rem;
+			height: 5px;
+			display: block;
+			background-color: rgb(255, 255, 255);
+			border-radius: 5px;
+		}
+
+		@media (min-width: $tablet_size) {
+			display: none;
+		}
+	}
+
+	.custom-logo-link {
+		display: inline;
+
+		@media screen and (min-width: $tablet-size) {
+			position: absolute;
+			left: 50%;
+			transform: translateX(-50%);
+			top: 0;
+		}
+	}
+
+	.custom-logo {
+		width: 5rem;
+		height: auto;
+	}
+
+	.menu {
+		a {
+			color: white;
+			text-align: center;
+			border-radius: 10px;
+			padding: 0.5rem;
+			&:hover {
+				background-color: blue;
+			}
+		}
+
+		@media screen and (min-width: $tablet-size) {
+			@include flex-center;
+			gap: 2rem;
+			text-align: right;
+		}
+	}
+
+	ul {
+		display: none;
+		list-style: none;
+		margin: 0;
+		padding-left: 0;
+
+		ul {
+			box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
+			float: left;
+			position: absolute;
+			top: 100%;
+			left: -999em;
+			z-index: 99999;
+
+			ul {
+				left: -999em;
+				top: 0;
+			}
+
+			li {
+				&:hover > ul,
+				&.focus > ul {
+					display: block;
+					left: auto;
+				}
+			}
+
+			a {
+				width: 200px;
+				color: white;
+			}
+
+			:hover > a,
+			.focus > a {
+			}
+
+			a:hover,
+			a.focus {
+			}
+		}
+
+		li:hover > ul,
+		li.focus > ul {
+			left: auto;
+		}
+	}
+
+	li {
+		position: relative;
+
+		&:hover > a,
+		&.focus > a {
+		}
+	}
+
+	a {
+		display: block;
+		text-decoration: none;
+	}
+
+	.current_page_item > a,
+	.current-menu-item > a,
+	.current_page_ancestor > a,
+	.current-menu-ancestor > a {
+	}
+}
+
+/* Small menu. */
+.menu-toggle,
+.main-navigation.toggled ul {
+	display: block;
+}
+
+@media screen and (min-width: $tablet-size) {
+	.menu-toggle {
+		display: none;
+	}
+
+	.main-navigation ul {
+		display: flex;
+	}
+}
+
+.comment-navigation,
+.posts-navigation,
+.post-navigation {
+	.site-main & {
+		margin: 0 0 1.5em;
+	}
+
+	.nav-links {
+		display: flex;
+	}
+
+	.nav-previous {
+		flex: 1 0 50%;
+	}
+
+	.nav-next {
+		text-align: end;
+		flex: 1 0 50%;
+	}
+}
+
+.main-navigation.toggled .menu-toggle span:nth-child(1) {
+	transform: translateY(13px) translateX(2px) rotate(45deg);
+	width: 44px;
+	transition: all 0.5s ease-in-out;
+}
+.main-navigation.toggled .menu-toggle span:nth-child(2) {
+	width: 0;
+}
+.main-navigation.toggled .menu-toggle span:nth-child(3) {
+	transform: translateY(-16px) translateX(2px) rotate(-45deg);
+	width: 44px;
+	transition: all 0.5s ease-in-out;
+}

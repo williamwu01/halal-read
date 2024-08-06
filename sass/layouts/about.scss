@@ -37,5 +37,8 @@
 	}
 }
 
-#post-88 .entry-content > .wp-block-group:nth-child(2) > .wp-block-group__inner-container {
+#post-88 section.wp-block-group > .wp-block-group__inner-container {
+	@media (max-width: $tablet_size) {
+		flex-direction: column-reverse;
+	}
 }

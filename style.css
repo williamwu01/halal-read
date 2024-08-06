@@ -22,47 +22,7 @@ Normalizing styles have been helped along thanks to the fine work of
 Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 */
 #masthead {
-	background-color: rgb(128, 87, 0);
-}
-
-.menu-toggle {
-	position: relative;
-	width: 30px;
-	height: 20px;
-	cursor: pointer;
-}
-.menu-toggle span {
-	display: block;
-	position: absolute;
-	height: 4px;
-	width: 100%;
-	background-color: #333;
-	border-radius: 2px;
-	transition: all 0.3s ease;
-}
-.menu-toggle span::before, .menu-toggle span::after {
-	content: "";
-	position: absolute;
-	height: 4px;
-	width: 100%;
-	background-color: #333;
-	border-radius: 2px;
-	transition: all 0.3s ease;
-}
-.menu-toggle span::before {
-	top: -8px;
-}
-.menu-toggle span::after {
-	bottom: -8px;
-}
-.menu-toggle.active span {
-	background-color: transparent;
-}
-.menu-toggle.active span::before {
-	transform: translateY(8px) rotate(45deg);
-}
-.menu-toggle.active span::after {
-	transform: translateY(-8px) rotate(-45deg);
+	background-color: rgb(151, 165, 151);
 }
 
 #post-88 figure {
@@ -103,5 +63,315 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 		margin: 0 auto;
 		padding-top: 2rem;
 	}
+}
+
+@media (max-width: 778px) {
+	#post-88 section.wp-block-group > .wp-block-group__inner-container {
+		flex-direction: column-reverse;
+	}
+}
+
+/* Navigation
+--------------------------------------------- */
+.main-navigation {
+	display: block;
+	width: 100%;
+	max-width: 1024px;
+	padding: 1rem;
+	margin: 0 auto;
+	padding: 1rem;
+	position: fixed;
+	bottom: 0;
+	z-index: 9999;
+	background-color: black;
+	filter: drop-shadow(0 -6mm 4mm #435758);
+	color: white;
+}
+@media screen and (min-width: 778px) {
+	.main-navigation {
+		position: relative;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		height: 5rem;
+		filter: none;
+	}
+}
+.main-navigation .menu-toggle {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 10px;
+	flex-direction: column;
+	cursor: pointer;
+	position: fixed;
+	bottom: 2rem;
+	right: 1rem;
+	background-color: transparent;
+	border: 0;
+}
+.main-navigation .menu-toggle span {
+	width: 2rem;
+	height: 5px;
+	display: block;
+	background-color: rgb(255, 255, 255);
+	border-radius: 5px;
+}
+@media (min-width: 778px) {
+	.main-navigation .menu-toggle {
+		display: none;
+	}
+}
+.main-navigation .custom-logo-link {
+	display: inline;
+}
+@media screen and (min-width: 778px) {
+	.main-navigation .custom-logo-link {
+		position: absolute;
+		left: 50%;
+		transform: translateX(-50%);
+		top: 0;
+	}
+}
+.main-navigation .custom-logo {
+	width: 5rem;
+	height: auto;
+}
+.main-navigation .menu a {
+	color: white;
+	text-align: center;
+	border-radius: 10px;
+	padding: 0.5rem;
+}
+.main-navigation .menu a:hover {
+	background-color: blue;
+}
+@media screen and (min-width: 778px) {
+	.main-navigation .menu {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 10px;
+		gap: 2rem;
+		text-align: right;
+	}
+}
+.main-navigation ul {
+	display: none;
+	list-style: none;
+	margin: 0;
+	padding-left: 0;
+}
+.main-navigation ul ul {
+	box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
+	float: left;
+	position: absolute;
+	top: 100%;
+	left: -999em;
+	z-index: 99999;
+}
+.main-navigation ul ul ul {
+	left: -999em;
+	top: 0;
+}
+.main-navigation ul ul li:hover > ul, .main-navigation ul ul li.focus > ul {
+	display: block;
+	left: auto;
+}
+.main-navigation ul ul a {
+	width: 200px;
+	color: white;
+}
+.main-navigation ul li:hover > ul,
+.main-navigation ul li.focus > ul {
+	left: auto;
+}
+.main-navigation li {
+	position: relative;
+}
+.main-navigation a {
+	display: block;
+	text-decoration: none;
+}
+/* Small menu. */
+.menu-toggle,
+.main-navigation.toggled ul {
+	display: block;
+}
+
+@media screen and (min-width: 778px) {
+	.menu-toggle {
+		display: none;
+	}
+	.main-navigation ul {
+		display: flex;
+	}
+}
+.site-main .comment-navigation,
+.site-main .posts-navigation,
+.site-main .post-navigation {
+	margin: 0 0 1.5em;
+}
+.comment-navigation .nav-links,
+.posts-navigation .nav-links,
+.post-navigation .nav-links {
+	display: flex;
+}
+.comment-navigation .nav-previous,
+.posts-navigation .nav-previous,
+.post-navigation .nav-previous {
+	flex: 1 0 50%;
+}
+.comment-navigation .nav-next,
+.posts-navigation .nav-next,
+.post-navigation .nav-next {
+	text-align: end;
+	flex: 1 0 50%;
+}
+
+.main-navigation.toggled .menu-toggle span:nth-child(1) {
+	transform: translateY(13px) translateX(2px) rotate(45deg);
+	width: 44px;
+	transition: all 0.5s ease-in-out;
+}
+
+.main-navigation.toggled .menu-toggle span:nth-child(2) {
+	width: 0;
+}
+
+.main-navigation.toggled .menu-toggle span:nth-child(3) {
+	transform: translateY(-16px) translateX(2px) rotate(-45deg);
+	width: 44px;
+	transition: all 0.5s ease-in-out;
+}
+
+/* Posts and pages
+--------------------------------------------- */
+.sticky {
+	display: block;
+}
+
+.post,
+.page {
+	margin: 0 0 1.5em;
+}
+
+.updated:not(.published) {
+	display: none;
+}
+
+.page-content,
+.entry-content,
+.entry-summary {
+	margin: 1.5em 0 0;
+}
+
+.page-links {
+	clear: both;
+	margin: 0 0 1.5em;
+}
+
+/* Comments
+--------------------------------------------- */
+.comment-content a {
+	word-wrap: break-word;
+}
+
+.bypostauthor {
+	display: block;
+}
+
+/* Widgets
+--------------------------------------------- */
+.widget {
+	margin: 0 0 1.5em;
+}
+.widget select {
+	max-width: 100%;
+}
+
+/* Media
+--------------------------------------------- */
+.page-content .wp-smiley,
+.entry-content .wp-smiley,
+.comment-content .wp-smiley {
+	border: none;
+	margin-bottom: 0;
+	margin-top: 0;
+	padding: 0;
+}
+
+/* Make sure logo link wraps around logo image. */
+.custom-logo-link {
+	display: inline-block;
+}
+
+/* Captions
+--------------------------------------------- */
+.wp-caption {
+	margin-bottom: 1.5em;
+	max-width: 100%;
+}
+.wp-caption img[class*=wp-image-] {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+.wp-caption .wp-caption-text {
+	margin: 0.8075em 0;
+}
+
+.wp-caption-text {
+	text-align: center;
+}
+
+/* Galleries
+--------------------------------------------- */
+.gallery {
+	margin-bottom: 1.5em;
+	display: grid;
+	grid-gap: 1.5em;
+}
+
+.gallery-item {
+	display: inline-block;
+	text-align: center;
+	width: 100%;
+}
+
+.gallery-columns-2 {
+	grid-template-columns: repeat(2, 1fr);
+}
+
+.gallery-columns-3 {
+	grid-template-columns: repeat(3, 1fr);
+}
+
+.gallery-columns-4 {
+	grid-template-columns: repeat(4, 1fr);
+}
+
+.gallery-columns-5 {
+	grid-template-columns: repeat(5, 1fr);
+}
+
+.gallery-columns-6 {
+	grid-template-columns: repeat(6, 1fr);
+}
+
+.gallery-columns-7 {
+	grid-template-columns: repeat(7, 1fr);
+}
+
+.gallery-columns-8 {
+	grid-template-columns: repeat(8, 1fr);
+}
+
+.gallery-columns-9 {
+	grid-template-columns: repeat(9, 1fr);
+}
+
+.gallery-caption {
+	display: block;
 }
 /*# sourceMappingURL=sass/style.css.map */
