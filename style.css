@@ -65,6 +65,7 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 	}
 }
 
+<<<<<<< HEAD
 @media (max-width: 778px) {
 	#post-88 section.wp-block-group > .wp-block-group__inner-container {
 		flex-direction: column-reverse;
@@ -373,5 +374,14 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 
 .gallery-caption {
 	display: block;
+=======
+.event-list {
+	margin-top: 4rem;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-template-rows: repeat(2, 1fr);
+	grid-column-gap: 50px;
+	grid-row-gap: 50px;
+>>>>>>> ccb248cfaf7f74cbebedc189b1c86805b3f2185d
 }
 /*# sourceMappingURL=sass/style.css.map */

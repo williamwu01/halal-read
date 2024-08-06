@@ -66,6 +66,27 @@ get_header();
         <?php endif; ?>
 
     </section>
+    <section class="awards">
+        <h2>Social</h2>
+        <div class="awards-wrap">
+            <?php
+            // Function to get SVG content
+            function get_svg_content($filename) {
+                $file_path = get_template_directory() . '/svg/' . $filename;
+                if (file_exists($file_path)) {
+                    return file_get_contents($file_path);
+                }
+                return '';
+            }
+
+            echo get_svg_content('social1.svg');
+            echo get_svg_content('social2.svg');
+            echo get_svg_content('social3.svg');
+            echo get_svg_content('social4.svg');
+            echo get_svg_content('social5.svg');
+            ?>
+        </div>
+    </section>
 	</main><!-- #main -->
 
 <?php
