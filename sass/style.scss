@@ -24,5 +24,9 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 
 // Import variables and mixins.
 @import 'abstracts/abstracts';
-// Import header style
+// Import navigation style
 @import 'layouts/header.scss';
+@import 'layouts/footer.scss';
+
+// Import page styles
+@import 'layouts/about.scss';

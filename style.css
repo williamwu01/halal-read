@@ -22,7 +22,7 @@ Normalizing styles have been helped along thanks to the fine work of
 Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 */
 #masthead {
-	background-color: green;
+	background-color: rgb(128, 87, 0);
 }
 
 .menu-toggle {
@@ -63,5 +63,45 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 }
 .menu-toggle.active span::after {
 	transform: translateY(-8px) rotate(-45deg);
+}
+
+#post-88 figure {
+	width: 80%;
+	max-width: 500px;
+	margin: 0 auto;
+}
+#post-88 figure img {
+	width: 100%;
+	max-height: 500px;
+	-o-object-fit: cover;
+	   object-fit: cover;
+}
+
+@media (min-width: 778px) {
+	#post-88 figure {
+		margin: 0;
+	}
+}
+#post-88 .wp-block-group__inner-container {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+@media (max-width: 778px) {
+	#post-88 .wp-block-group__inner-container {
+		flex-direction: column;
+	}
+}
+
+#post-88 .wp-block-group__inner-container > p {
+	width: 50%;
+	max-width: 500px;
+	margin: auto 2rem;
+}
+@media (max-width: 778px) {
+	#post-88 .wp-block-group__inner-container > p {
+		margin: 0 auto;
+		padding-top: 2rem;
+	}
 }
 /*# sourceMappingURL=sass/style.css.map */

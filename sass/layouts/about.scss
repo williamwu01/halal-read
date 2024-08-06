@@ -1,0 +1,41 @@
+#post-88 figure {
+	width: 80%;
+	max-width: 500px;
+	margin: 0 auto;
+
+	img {
+		width: 100%;
+		max-height: 500px;
+		object-fit: cover;
+	}
+}
+
+@media (min-width: $tablet_size) {
+	#post-88 figure {
+		margin: 0; // Remove margin on larger screens
+	}
+}
+
+#post-88 .wp-block-group__inner-container {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+
+	@media (max-width: $tablet_size) {
+		flex-direction: column;
+	}
+}
+
+#post-88 .wp-block-group__inner-container > p {
+	width: 50%;
+	max-width: 500px;
+	margin: auto 2rem;
+
+	@media (max-width: $tablet_size) {
+		margin: 0 auto;
+		padding-top: 2rem;
+	}
+}
+
+#post-88 .entry-content > .wp-block-group:nth-child(2) > .wp-block-group__inner-container {
+}
