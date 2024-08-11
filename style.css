@@ -65,7 +65,6 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 	}
 }
 
-<<<<<<< HEAD
 @media (max-width: 778px) {
 	#post-88 section.wp-block-group > .wp-block-group__inner-container {
 		flex-direction: column-reverse;
@@ -106,8 +105,8 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 	flex-direction: column;
 	cursor: pointer;
 	position: fixed;
-	bottom: 2rem;
-	right: 1rem;
+	bottom: 0.75rem;
+	right: 3rem;
 	background-color: transparent;
 	border: 0;
 }
@@ -158,26 +157,31 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 	}
 }
 .main-navigation ul {
-	display: none;
 	list-style: none;
 	margin: 0;
 	padding-left: 0;
 }
 .main-navigation ul ul {
 	box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
-	float: left;
-	position: absolute;
-	top: 100%;
-	left: -999em;
-	z-index: 99999;
+	float: none; /* Remove float */
+	position: static; /* Position relative to parent */
+	display: none; /* Hide by default */
+	padding-left: 1rem; /* Optional: Adjust padding */
 }
-.main-navigation ul ul ul {
-	left: -999em;
-	top: 0;
+@media screen and (min-width: 778px) {
+	.main-navigation ul ul {
+		box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
+		position: absolute; /* Positioning for submenu */
+		top: 100%; /* Position directly below parent li */
+		left: 0; /* Align with left edge of parent li */
+		background-color: black; /* For visibility */
+		display: none; /* Hide submenu by default */
+		padding: 1rem; /* Optional: Adjust padding */
+		z-index: 99999; /* Ensure it appears above other content */
+	}
 }
 .main-navigation ul ul li:hover > ul, .main-navigation ul ul li.focus > ul {
 	display: block;
-	left: auto;
 }
 .main-navigation ul ul a {
 	width: 200px;
@@ -185,7 +189,7 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 }
 .main-navigation ul li:hover > ul,
 .main-navigation ul li.focus > ul {
-	left: auto;
+	display: block;
 }
 .main-navigation li {
 	position: relative;
@@ -374,7 +378,8 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 
 .gallery-caption {
 	display: block;
-=======
+}
+
 .event-list {
 	margin-top: 4rem;
 	display: grid;
@@ -382,6 +387,5 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 	grid-template-rows: repeat(2, 1fr);
 	grid-column-gap: 50px;
 	grid-row-gap: 50px;
->>>>>>> ccb248cfaf7f74cbebedc189b1c86805b3f2185d
 }
 /*# sourceMappingURL=sass/style.css.map */

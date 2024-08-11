@@ -22,8 +22,8 @@
 		@include flex-col-center();
 		cursor: pointer;
 		position: fixed;
-		bottom: 2rem;
-		right: 1rem;
+		bottom: 0.75rem;
+		right: 3rem;
 		background-color: transparent;
 		border: 0;
 
@@ -43,7 +43,7 @@
 	.custom-logo-link {
 		display: inline;
 
-		@media screen and (min-width: $tablet-size) {
+		@media screen and (min-width: $tablet_size) {
 			position: absolute;
 			left: 50%;
 			transform: translateX(-50%);
@@ -67,7 +67,7 @@
 			}
 		}
 
-		@media screen and (min-width: $tablet-size) {
+		@media screen and (min-width: $tablet_size) {
 			@include flex-center;
 			gap: 2rem;
 			text-align: right;
@@ -75,29 +75,30 @@
 	}
 
 	ul {
-		display: none;
 		list-style: none;
 		margin: 0;
 		padding-left: 0;
 
 		ul {
 			box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
-			float: left;
-			position: absolute;
-			top: 100%;
-			left: -999em;
-			z-index: 99999;
-
-			ul {
-				left: -999em;
-				top: 0;
+			float: none; /* Remove float */
+			position: static; /* Position relative to parent */
+			display: none; /* Hide by default */
+			padding-left: 1rem; /* Optional: Adjust padding */
+			@media screen and (min-width: $tablet_size) {
+				box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
+				position: absolute; /* Positioning for submenu */
+				top: 100%; /* Position directly below parent li */
+				left: 0; /* Align with left edge of parent li */
+				background-color: black; /* For visibility */
+				display: none; /* Hide submenu by default */
+				padding: 1rem; /* Optional: Adjust padding */
+				z-index: 99999; /* Ensure it appears above other content */
 			}
-
 			li {
 				&:hover > ul,
 				&.focus > ul {
 					display: block;
-					left: auto;
 				}
 			}
 
@@ -105,19 +106,11 @@
 				width: 200px;
 				color: white;
 			}
-
-			:hover > a,
-			.focus > a {
-			}
-
-			a:hover,
-			a.focus {
-			}
 		}
 
 		li:hover > ul,
 		li.focus > ul {
-			left: auto;
+			display: block;
 		}
 	}
 
@@ -147,7 +140,7 @@
 	display: block;
 }
 
-@media screen and (min-width: $tablet-size) {
+@media screen and (min-width: $tablet_size) {
 	.menu-toggle {
 		display: none;
 	}
@@ -191,3 +184,9 @@
 	width: 44px;
 	transition: all 0.5s ease-in-out;
 }
+// .main-navigation.toggled ul.sub-menu {
+// 	display: block;
+// 	flex-direction: column;
+// 	position: relative;
+// 	background-color: red; /* For testing visibility */
+// }

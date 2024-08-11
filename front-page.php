@@ -113,7 +113,7 @@ get_header();
     <section class="why-halal">
         <h2>Why Halalreads?</h2>
         <div class="video-container">
-        <iframe width="560" height="315" src="https://williamwu.tech/strange-inc/wp-content/uploads/2024/08/Recording-2024-06-28-204305.mp4" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <iframe width="300" height="315" src="https://williamwu.tech/strange-inc/wp-content/uploads/2024/08/Recording-2024-06-28-204305.mp4" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
     </section>
 
