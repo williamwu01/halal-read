@@ -1,5 +1,9 @@
 #masthead {
 	background-color: $color__background-head;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+	align-items: center;
 
 	// .user-points {
 	// 	background-color: #d9d9d9;

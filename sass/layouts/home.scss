@@ -1,0 +1,45 @@
+//popular book item style
+.featured-books .book-item {
+	width: 25%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	flex: 1 1 200px;
+	padding: 1rem;
+
+	h2,
+	.book-excerpt {
+		width: 220px;
+	}
+}
+//popular book section style
+.featured-books .book-list {
+	display: flex;
+	gap: 1rem;
+	justify-content: space-evenly;
+	flex-wrap: wrap;
+}
+
+//new book item style
+.new-books {
+	background-color: #4f6b33;
+	padding-bottom: 3rem;
+	padding-top: 1rem;
+}
+
+.new-books .book-item {
+	display: flex;
+	width: 40%;
+	gap: 1rem;
+}
+
+.new-books .book-list {
+	width: 80%;
+	margin: 0 auto;
+	display: flex;
+	gap: 1rem;
+	justify-content: space-evenly;
+	flex-wrap: wrap;
+	background-color: #c2cfb0;
+	padding: 1rem;
+}

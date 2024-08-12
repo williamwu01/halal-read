@@ -23,6 +23,53 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 */
 #masthead {
 	background-color: #c2cfb0;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+	align-items: center;
+}
+
+.featured-books .book-item {
+	width: 25%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	flex: 1 1 200px;
+	padding: 1rem;
+}
+.featured-books .book-item h2,
+.featured-books .book-item .book-excerpt {
+	width: 220px;
+}
+
+.featured-books .book-list {
+	display: flex;
+	gap: 1rem;
+	justify-content: space-evenly;
+	flex-wrap: wrap;
+}
+
+.new-books {
+	background-color: #4f6b33;
+	padding-bottom: 3rem;
+	padding-top: 1rem;
+}
+
+.new-books .book-item {
+	display: flex;
+	width: 40%;
+	gap: 1rem;
+}
+
+.new-books .book-list {
+	width: 80%;
+	margin: 0 auto;
+	display: flex;
+	gap: 1rem;
+	justify-content: space-evenly;
+	flex-wrap: wrap;
+	background-color: #c2cfb0;
+	padding: 1rem;
 }
 
 #post-88 figure {
@@ -662,5 +709,18 @@ template {
  */
 [hidden] {
 	display: none;
+}
+
+h1 {
+	text-align: center;
+	color: #412d61;
+}
+
+.entry-title {
+	display: none;
+}
+
+.entry-content {
+	margin-top: 0;
 }
 /*# sourceMappingURL=sass/style.css.map */

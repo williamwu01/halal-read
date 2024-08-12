@@ -30,6 +30,7 @@ get_header();
         $most_commented_books = new WP_Query($args);
 
         if ($most_commented_books->have_posts()): ?>
+					<h1>Popular</h1>
         <div class="book-list">
             <?php while ($most_commented_books->have_posts()):
                     $most_commented_books->the_post(); ?>
@@ -78,7 +79,7 @@ get_header();
 
         if ($most_commented_books->have_posts()): ?>
 
-        <h2>New Books on the Shelf</h2>
+        <h1>New Books on the Shelf</h1>
         <div class="book-list">
             <?php while ($most_commented_books->have_posts()):
                     $most_commented_books->the_post(); ?>
@@ -98,8 +99,10 @@ get_header();
                     }
                     ?>
                 </div>
-                <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-                <div class="book-excerpt"><?php the_excerpt(); ?></div>
+								<div class="book-info">
+									<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+									<div class="book-excerpt"><?php the_excerpt(); ?></div>
+								</div>
             </div>
             <?php endwhile;
                 wp_reset_postdata(); ?>
@@ -111,7 +114,7 @@ get_header();
     </section>
 
     <section class="why-halal">
-        <h2>Why Halalreads?</h2>
+        <h1>Why Halalreads?</h1>
         <div class="video-container">
         <iframe width="300" height="315" src="https://williamwu.tech/strange-inc/wp-content/uploads/2024/08/Recording-2024-06-28-204305.mp4" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
