@@ -53,16 +53,26 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 	background-color: #4f6b33;
 	padding-bottom: 3rem;
 	padding-top: 1rem;
+	width: 100%;
 }
 
 .new-books .book-item {
 	display: flex;
-	width: 40%;
+	flex-direction: column;
+	width: 50%;
+	min-width: 520px;
 	gap: 1rem;
+	flex: 1 1 200px;
+	padding: 2rem;
+}
+@media screen and (min-width: 778px) {
+	.new-books .book-item {
+		flex-direction: row;
+	}
 }
 
 .new-books .book-list {
-	width: 80%;
+	width: 100%;
 	margin: 0 auto;
 	display: flex;
 	gap: 1rem;
@@ -70,6 +80,12 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 	flex-wrap: wrap;
 	background-color: #c2cfb0;
 	padding: 1rem;
+}
+@media screen and (min-width: 778px) {
+	.new-books .book-list {
+		width: 80%;
+		max-width: 1200px;
+	}
 }
 
 #post-88 figure {
