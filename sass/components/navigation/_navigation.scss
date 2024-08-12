@@ -6,7 +6,7 @@
 	position: fixed;
 	bottom: 0;
 	z-index: 9999;
-	background-color: black;
+	background-color: $color__background-head;
 	filter: drop-shadow(0 -6mm 4mm #435758);
 	color: white;
 
@@ -14,10 +14,10 @@
 		position: relative;
 		@include flex-between();
 		height: 5rem;
-
 		filter: none;
 	}
 
+	//hamburger menu
 	.menu-toggle {
 		@include flex-col-center();
 		cursor: pointer;
@@ -40,22 +40,23 @@
 		}
 	}
 
-	.custom-logo-link {
-		display: inline;
+	// .custom-logo-link {
+	// 	display: inline;
 
-		@media screen and (min-width: $tablet_size) {
-			position: absolute;
-			left: 50%;
-			transform: translateX(-50%);
-			top: 0;
-		}
-	}
+	// 	@media screen and (min-width: $tablet_size) {
+	// 		position: absolute;
+	// 		left: 50%;
+	// 		transform: translateX(-50%);
+	// 		top: 0;
+	// 	}
+	// }
 
-	.custom-logo {
-		width: 5rem;
-		height: auto;
-	}
+	// .custom-logo {
+	// 	width: 5rem;
+	// 	height: auto;
+	// }
 
+	//menu styling
 	.menu {
 		a {
 			color: white;
@@ -63,7 +64,7 @@
 			border-radius: 10px;
 			padding: 0.5rem;
 			&:hover {
-				background-color: blue;
+				background-color: $color__link-hover;
 			}
 		}
 
@@ -85,12 +86,14 @@
 			position: static; /* Position relative to parent */
 			display: none; /* Hide by default */
 			padding-left: 1rem; /* Optional: Adjust padding */
+
+			//desktop submenu
 			@media screen and (min-width: $tablet_size) {
 				box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
 				position: absolute; /* Positioning for submenu */
 				top: 100%; /* Position directly below parent li */
 				left: 0; /* Align with left edge of parent li */
-				background-color: black; /* For visibility */
+				background-color: $color__background-head; /* For visibility */
 				display: none; /* Hide submenu by default */
 				padding: 1rem; /* Optional: Adjust padding */
 				z-index: 99999; /* Ensure it appears above other content */
@@ -116,60 +119,50 @@
 
 	li {
 		position: relative;
-
-		&:hover > a,
-		&.focus > a {
-		}
 	}
 
 	a {
 		display: block;
 		text-decoration: none;
 	}
-
-	.current_page_item > a,
-	.current-menu-item > a,
-	.current_page_ancestor > a,
-	.current-menu-ancestor > a {
-	}
 }
 
 /* Small menu. */
-.menu-toggle,
-.main-navigation.toggled ul {
-	display: block;
-}
+// .menu-toggle,
+// .main-navigation.toggled ul {
+// 	display: block;
+// }
 
-@media screen and (min-width: $tablet_size) {
-	.menu-toggle {
-		display: none;
-	}
+// @media screen and (min-width: $tablet_size) {
+// 	.menu-toggle {
+// 		display: none;
+// 	}
 
-	.main-navigation ul {
-		display: flex;
-	}
-}
+// 	.main-navigation ul {
+// 		display: flex;
+// 	}
+// }
 
-.comment-navigation,
-.posts-navigation,
-.post-navigation {
-	.site-main & {
-		margin: 0 0 1.5em;
-	}
+// .comment-navigation,
+// .posts-navigation,
+// .post-navigation {
+// 	.site-main & {
+// 		margin: 0 0 1.5em;
+// 	}
 
-	.nav-links {
-		display: flex;
-	}
+// 	.nav-links {
+// 		display: flex;
+// 	}
 
-	.nav-previous {
-		flex: 1 0 50%;
-	}
+// 	.nav-previous {
+// 		flex: 1 0 50%;
+// 	}
 
-	.nav-next {
-		text-align: end;
-		flex: 1 0 50%;
-	}
-}
+// 	.nav-next {
+// 		text-align: end;
+// 		flex: 1 0 50%;
+// 	}
+// }
 
 .main-navigation.toggled .menu-toggle span:nth-child(1) {
 	transform: translateY(13px) translateX(2px) rotate(45deg);
@@ -184,9 +177,14 @@
 	width: 44px;
 	transition: all 0.5s ease-in-out;
 }
-// .main-navigation.toggled ul.sub-menu {
-// 	display: block;
-// 	flex-direction: column;
-// 	position: relative;
-// 	background-color: red; /* For testing visibility */
-// }
+
+.main-navigation #header-menu {
+	display: none; /* Hide the menu by default */
+	@media screen and (min-width: $tablet_size) {
+		display: flex;
+	}
+}
+
+.main-navigation.toggled #header-menu {
+	display: block; /* Show the menu when toggled */
+}

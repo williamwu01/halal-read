@@ -29,9 +29,12 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 @import 'layouts/footer.scss';
 
 // Import page styles
+@import 'layouts/home.scss';
 @import 'layouts/about.scss';
 
 @import 'components/components';
 
 // Import page styles
 @import 'layouts/events.scss';
+
+@import 'generics/normalize';
