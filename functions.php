@@ -50,7 +50,11 @@ function halal_setup() {
 	register_nav_menus(
 		array(
 			'header' => esc_html__( 'Header Menu Location', 'halal' ),
-			'footer' => esc_html__( 'Footer', 'halal' ),
+			'footer-middle' => esc_html__( 'Footer - Middle side', 'halal' ),
+			'footer-left' => esc_html__('Footer - Left Side', 'halal'),
+			'footer-right' => esc_html__('Footer - Right Side', 'halal'),
+
+
 		)
 	);
 	
@@ -124,8 +128,20 @@ add_action( 'after_setup_theme', 'halal_content_width', 0 );
 function halal_widgets_init() {
 	register_sidebar(
 		array(
-			'name'          => esc_html__( 'Sidebar', 'halal' ),
-			'id'            => 'sidebar-1',
+			'name'          => esc_html__( 'Footer', 'halal' ),
+			'id'            => 'footer-sidebar',
+			'description'   => esc_html__( 'Add widgets here.', 'halal' ),
+			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</section>',
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>',
+		)
+	);
+
+	register_sidebar(
+		array(
+			'name'          => esc_html__( 'Footer-subscribe', 'halal' ),
+			'id'            => 'footer-subscribe',
 			'description'   => esc_html__( 'Add widgets here.', 'halal' ),
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</section>',

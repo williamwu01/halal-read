@@ -66,9 +66,9 @@ get_header();
         <?php endif; ?>
 
     </section>
-    <section class="awards">
-        <h2>Social</h2>
-        <div class="awards-wrap">
+    <section class="social">
+        <h2>Join / Follow us on our social media to keep up!</h2>
+        <div class="social-wrap">
             <?php
             // Function to get SVG content
             function get_svg_content($filename) {

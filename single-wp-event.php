@@ -55,9 +55,9 @@ get_header();
     endwhile; // End of the loop.
     ?>
 
-    <section class="awards">
+    <section class="social">
         <h2>Social</h2>
-        <div class="awards-wrap">
+        <div class="social-wrap">
             <?php
             // Function to get SVG content
             function get_svg_content($filename) {
