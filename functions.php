@@ -164,6 +164,17 @@ function halal_scripts() {
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
+
+	if (is_front_page()) {
+		wp_enqueue_style('swiper-styles', get_template_directory_uri() . '/css/swiper-bundle.css', array(), '11.0.6');
+		wp_enqueue_script('swiper-scripts', get_template_directory_uri() . '/js/swiper-bundle.min.js', array('jquery'), '11.0.6', true);
+		wp_enqueue_script('swiper-settings', get_template_directory_uri() . '/js/swiper-settings.js', array('swiper-scripts', 'jquery'), _S_VERSION, true);
+
+		// Localize the script with the AJAX URL
+		wp_localize_script('swiper-settings', 'swiper_home_params', array(
+			'ajax_url' => admin_url('admin-ajax.php')
+		));
+	}
 }
 add_action( 'wp_enqueue_scripts', 'halal_scripts' );
 
@@ -239,3 +250,4 @@ function update_comments_table_schema() {
 }
 add_action('init', 'update_comments_table_schema');
 
+// Load more books via AJAX
