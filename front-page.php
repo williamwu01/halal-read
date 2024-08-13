@@ -65,52 +65,68 @@ get_header();
 
     </section>
 
-    <section class="new-books">
+		<section class="new-books">
         <?php
         // Custom WP_Query to get new books
         $args = array(
             'post_type' => 'wp-book',        // Your custom post type
-            'posts_per_page' => 4,           // Limit to 4 books
-            'orderby' => 'date',            // Order by date
-            'order' => 'DESC',              // Most recent first
+            'posts_per_page' => 0,           // no limits
+            'orderby' => 'date',             // Order by date
+            'order' => 'DESC',               // Most recent first
         );
 
-        $most_commented_books = new WP_Query($args);
+        $new_books = new WP_Query($args);
 
-        if ($most_commented_books->have_posts()): ?>
-
-        <h1>New Books on the Shelf</h1>
-        <div class="book-list">
-            <?php while ($most_commented_books->have_posts()):
-                    $most_commented_books->the_post(); ?>
-            <div class="book-item">
-                <div class="book-cover">
-                    <?php
-                    // Display the post thumbnail
-                    $cover_image = get_field('cover_image');
-
-                    // Check if the cover_image field has a value
-                    if ($cover_image) {
-                        // Display the cover_image
-                        echo '<img src="' . esc_url($cover_image['url']) . '" alt="' . esc_attr($cover_image['alt']) . '">';
-                    } elseif (has_post_thumbnail()) {
-                        // Display the post thumbnail if cover_image is not available
-                        the_post_thumbnail();
-                    }
-                    ?>
-                </div>
-								<div class="book-info">
-									<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-									<div class="book-excerpt"><?php the_excerpt(); ?></div>
-								</div>
-            </div>
-            <?php endwhile;
-                wp_reset_postdata(); ?>
-        </div>
+				if ($new_books->have_posts()): ?>
+					<h1>New Books on the Shelf</h1>
+					<div class="swiper-home">
+							<div class="swiper-wrapper">
+									<?php
+									$counter = 0;
+									$slides = '';
+									while ($new_books->have_posts()): 
+											$new_books->the_post(); 
+											if ($counter % 4 == 0) {
+													if ($counter > 0) {
+															echo '</div>'; // Close previous slide
+													}
+													echo '<div class="swiper-slide">'; // Start new slide
+											}
+									?>
+											<div class="book-item">
+													<div class="book-cover">
+															<?php
+															// Display the post thumbnail
+															$cover_image = get_field('cover_image');
+			
+															// Check if the cover_image field has a value
+															if ($cover_image) {
+																	// Display the cover_image
+																	echo '<img src="' . esc_url($cover_image['url']) . '" alt="' . esc_attr($cover_image['alt']) . '">';
+															} elseif (has_post_thumbnail()) {
+																	// Display the post thumbnail if cover_image is not available
+																	the_post_thumbnail();
+															}
+															?>
+													</div>
+													<div class="book-info">
+															<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+															<div class="book-excerpt"><?php the_excerpt(); ?></div>
+													</div>
+											</div>
+									<?php 
+											$counter++;
+									endwhile; 
+									echo '</div>'; // Close last slide
+									?>
+							</div>
+							<div class="swiper-pagination"></div>
+							<div class="swiper-button-prev"></div>
+							<div class="swiper-button-next"></div>
+					</div>
         <?php else: ?>
-        <p><?php _e('No new books found.', 'textdomain'); ?></p>
+            <p><?php _e('No new books found.', 'textdomain'); ?></p>
         <?php endif; ?>
-
     </section>
 
     <section class="why-halal">
