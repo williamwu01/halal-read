@@ -104,7 +104,7 @@ footer {
 .new-books .book-item {
 	display: flex;
 	flex-direction: column;
-	width: 50%;
+	width: 40%;
 	min-width: 520px;
 	gap: 1rem;
 	flex: 1 1 200px;
@@ -133,6 +133,16 @@ footer {
 	}
 }
 
+@media screen and (min-width: 1280px) {
+	.nbooks-mobile {
+		display: none;
+	}
+}
+@media screen and (max-width: 1280px) {
+	.nbooks-desktop {
+		display: none;
+	}
+}
 #post-88 figure {
 	width: 80%;
 	max-width: 500px;
