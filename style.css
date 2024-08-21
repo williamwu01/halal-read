@@ -40,6 +40,7 @@ footer#colophon.site-footer {
 	display: flex;
 	justify-content: center;
 	gap: 80px;
+	flex-wrap: wrap;
 }
 
 .site-info {
@@ -74,6 +75,30 @@ footer#colophon.site-footer {
 	font-size: 1.2rem;
 }
 
+@media screen and (max-width: 768px) {
+	.footer-wrapper {
+		flex-direction: column;
+		align-items: center;
+		gap: 40px;
+	}
+	.footer-menu {
+		grid-template-columns: 1fr 1fr;
+		row-gap: 20px;
+		-moz-column-gap: 20px;
+		     column-gap: 20px;
+	}
+	.footer-menu li {
+		text-align: left;
+	}
+	.footer-middle ul a {
+		font-size: 1rem;
+	}
+	.footer-right {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+}
 .featured-books .book-item {
 	width: 25%;
 	display: flex;
@@ -527,6 +552,15 @@ footer#colophon.site-footer {
 
 div.post-thumbnail img {
 	margin-top: 2rem;
+}
+
+.single-event-wrapper {
+	margin-left: 2rem;
+}
+
+.post-thumbnail img {
+	height: auto; /* Keeps the aspect ratio intact */
+	max-width: 100%; /* Prevents the image from exceeding the container's width */
 }
 
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */

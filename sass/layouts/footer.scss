@@ -2,13 +2,14 @@ footer#colophon.site-footer {
     background-color: $color__background-head;
     margin-top: 4rem;
     margin-bottom: -2rem;
-    
 }
+
 .footer-wrapper {
     padding-top: 3rem;
     display: flex;
     justify-content: center;
     gap: 80px;
+    flex-wrap: wrap; // Ensures elements stack on small screens
 }
 
 .site-info {
@@ -30,7 +31,6 @@ footer#colophon.site-footer {
     list-style-type: none;
     padding: 0;
     margin: 0;
-    
 }
 
 .footer-menu li {
@@ -40,14 +40,38 @@ footer#colophon.site-footer {
 }
 
 .footer-middle ul {
-   
     a {
         color:#000000;
         text-decoration: none;
         font-size: 1.2rem;
-
     }
 }
 
-// --------- Footer-Middle --------------
+// --------- Mobile Responsive ---------
 
+@media screen and (max-width: 768px) {
+    .footer-wrapper {
+        flex-direction: column;
+        align-items: center;
+        gap: 40px; // Reducing the gap for mobile
+    }
+
+    .footer-menu {
+        grid-template-columns: 1fr 1fr; // Stacking items on smaller screens
+        row-gap: 20px; // Increase row gap for readability
+        column-gap: 20px;
+    }
+
+    .footer-menu li {
+        text-align: left; // Align items to the left on mobile
+    }
+
+    .footer-middle ul a {
+        font-size: 1rem; // Reduce font size for mobile
+    }
+    .footer-right {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+}

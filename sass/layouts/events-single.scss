@@ -1,3 +1,13 @@
 div.post-thumbnail img {
     margin-top: 2rem;
 }
+
+.single-event-wrapper {
+    margin-left: 2rem;
+}
+
+.post-thumbnail img {
+    height: auto; /* Keeps the aspect ratio intact */
+    max-width: 100%; /* Prevents the image from exceeding the container's width */
+   
+}
