@@ -4,7 +4,7 @@
  *
  * This is the template that displays all pages by default.
  * Please note that this is the WordPress construct of pages
- * and other 'pages' on your WordPress site may use a
+ * and that other 'pages' on your WordPress site may use a
  * different template.
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
@@ -15,22 +15,22 @@
 get_header();
 ?>
 
-<main id="primary" class="site-main">
+	<main id="primary" class="site-main"> 
 
-    <?php
-    while ( have_posts() ) :
-        the_post();
+		<?php
+		while ( have_posts() ) :
+			the_post();
 
-        get_template_part( 'template-parts/content', 'page' );
+			get_template_part( 'template-parts/content', 'page' );
 
-        // If comments are open or we have at least one comment, load up the comment template.
-        if ( comments_open() || get_comments_number() ) :
-            comments_template();
-        endif;
+			// If comments are open or we have at least one comment, load up the comment template.
+			if ( comments_open() || get_comments_number() ) :
+				comments_template();
+			endif;
 
-    endwhile; // End of the loop.
-    ?>
-    <section class="featured-books">
+		endwhile; // End of the loop.
+		?>
+		<section class="featured-books">
         <?php
         // Custom WP_Query to get books with the most comments
         $args = array(
@@ -49,14 +49,14 @@ get_header();
                     <div class="event-item">
                         <?php if (has_post_thumbnail()): ?>
                             <div class="event-cover">
-                                <a href="<?php the_permalink(); ?>" class="event-link">
-                                    <?php the_post_thumbnail('medium'); // Display book cover ?>
-                                    <div class="event-title-overlay">
-                                        <h2><?php the_title(); ?></h2>
-                                    </div>
-                                </a>
+                                <?php the_post_thumbnail('medium'); // Display book cover ?>
                             </div>
                         <?php endif; ?>
+                        <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+                        <div class="event-excerpt"><?php the_excerpt(); ?></div>
+                        <div class="comment-count">
+                            <?php comments_number('No Comments', '1 Comment', '% Comments'); ?>
+                        </div>
                     </div>
                 <?php endwhile;
                 wp_reset_postdata(); ?>
@@ -66,9 +66,9 @@ get_header();
         <?php endif; ?>
 
     </section>
-    <section class="social">
-        <h2>Join / Follow us on our social media to keep up!</h2>
-        <div class="social-wrap">
+    <section class="awards">
+        <h2>Social</h2>
+        <div class="awards-wrap">
             <?php
             // Function to get SVG content
             function get_svg_content($filename) {
@@ -87,7 +87,7 @@ get_header();
             ?>
         </div>
     </section>
-</main><!-- #main -->
+	</main><!-- #main -->
 
 <?php
 // get_sidebar();

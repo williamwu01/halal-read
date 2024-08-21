@@ -133,6 +133,16 @@ footer#colophon.site-footer {
 	}
 }
 
+@media screen and (min-width: 1280px) {
+	.nbooks-mobile {
+		display: none;
+	}
+}
+@media screen and (max-width: 1280px) {
+	.nbooks-desktop {
+		display: none;
+	}
+}
 #post-88 figure {
 	width: 80%;
 	max-width: 500px;

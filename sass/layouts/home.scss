@@ -57,3 +57,16 @@
 		max-width: 1200px;
 	}
 }
+//display media swiper not desktop
+@media screen and (min-width: $desktop_size) {
+	.nbooks-mobile {
+		display: none;
+	}
+}
+
+//displays desktop not media swiper
+@media screen and (max-width: $desktop_size) {
+	.nbooks-desktop {
+		display: none;
+	}
+}
