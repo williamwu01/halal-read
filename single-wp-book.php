@@ -49,19 +49,24 @@ get_header();
     }
 
     while ( have_posts() ) :
-        the_post();
-
-        get_template_part( 'template-parts/content', get_post_type() );
-
-        // Display ACF Image Field
-        $cover_image = get_field('cover_image'); // Replace with your actual ACF image field name
-        if ( $cover_image ):
-            $cover_image_url = $cover_image['url'];
-            $cover_image_alt = $cover_image['alt'];
+        
     ?>
-            <div class="acf-cover-image">
-                <img src="<?php echo esc_url( $cover_image_url ); ?>" alt="<?php echo esc_attr( $cover_image_alt ); ?>" />
-            </div>
+    <?php
+    $book_id = get_the_ID();
+    ?><h2><?php echo get_the_title($book_id); ?></h2> <?php
+    the_post();
+
+    get_template_part( 'template-parts/content', get_post_type() );
+
+    // Display ACF Image Field
+    $cover_image = get_field('cover_image'); // Replace with your actual ACF image field name
+    if ( $cover_image ):
+    $cover_image_url = $cover_image['url'];
+    $cover_image_alt = $cover_image['alt'];
+    ?>
+    <div class="acf-cover-image">
+        <img src="<?php echo esc_url( $cover_image_url ); ?>" alt="<?php echo esc_attr( $cover_image_alt ); ?>" />
+    </div>
     <?php
         endif;
 
@@ -72,6 +77,7 @@ get_header();
             $file_url = $file['url'];
             $file_title = $file['title'];
 
+            
             // Check if the user has paid for the book
             $user_id = get_current_user_id();
             $book_id = get_the_ID();
@@ -79,28 +85,31 @@ get_header();
 
             if ( $has_paid ) {
     ?>
-                <div class="acf-file-download">
-                    <a class="download-button" href="<?php echo esc_url( $file_url ); ?>" download><?php echo esc_html( 'Download File' ); ?></a>
-                </div>
+    <div class="acf-file-download">
+        <a class="download-button" href="<?php echo esc_url( $file_url ); ?>"
+            download><?php echo esc_html( 'Download File' ); ?></a>
+    </div>
     <?php
             } else {
                 // Display the payment button
                 if ( is_user_logged_in() ) {
     ?>
-                    <div class="acf-file-payment">
-                        <form method="post" action="">
-                            <input type="hidden" name="book_id" value="<?php echo esc_attr( $book_id ); ?>">
-                            <button type="submit" name="buy_book" value="1"><?php printf( esc_html__( 'Buy for %d Points', 'halal' ), $price ); ?></button>
-                        </form>
-                        <?php if ( $error_message ): ?>
-                            <p class="error-message"><?php echo $error_message; ?></p>
-                            <a href="<?php echo esc_url( $buy_points_url ); ?>" class="buy-points-button"><?php esc_html_e( 'Buy Points', 'halal' ); ?></a>
-                        <?php endif; ?>
-                    </div>
+    <div class="acf-file-payment">
+        <form method="post" action="">
+            <input type="hidden" name="book_id" value="<?php echo esc_attr( $book_id ); ?>">
+            <button type="submit" name="buy_book"
+                value="1"><?php printf( esc_html__( 'Buy for %d Points', 'halal' ), $price ); ?></button>
+        </form>
+        <?php if ( $error_message ): ?>
+        <p class="error-message"><?php echo $error_message; ?></p>
+        <a href="<?php echo esc_url( $buy_points_url ); ?>"
+            class="buy-points-button"><?php esc_html_e( 'Buy Points', 'halal' ); ?></a>
+        <?php endif; ?>
+    </div>
     <?php
                 } else {
     ?>
-                    <p><?php esc_html_e( 'Please log in to purchase the book.', 'halal' ); ?></p>
+    <p><?php esc_html_e( 'Please log in to purchase the book.', 'halal' ); ?></p>
     <?php
                 }
             }
