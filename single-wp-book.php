@@ -53,19 +53,27 @@ get_header();
     ?>
     <?php
     $book_id = get_the_ID();
-    ?><h2><?php echo get_the_title($book_id); ?></h2> <?php
+    ?>
+    <div class="book-container">
+        <div class="book-details">
+            <h1><?php echo get_the_title($book_id); ?></h1> <?php
     the_post();
-
+    ?>
+            <?php
     get_template_part( 'template-parts/content', get_post_type() );
+    ?>
+        </div>
 
+        <?php
     // Display ACF Image Field
     $cover_image = get_field('cover_image'); // Replace with your actual ACF image field name
     if ( $cover_image ):
     $cover_image_url = $cover_image['url'];
     $cover_image_alt = $cover_image['alt'];
     ?>
-    <div class="acf-cover-image">
-        <img src="<?php echo esc_url( $cover_image_url ); ?>" alt="<?php echo esc_attr( $cover_image_alt ); ?>" />
+        <div class="book-image">
+            <img src="<?php echo esc_url( $cover_image_url ); ?>" alt="<?php echo esc_attr( $cover_image_alt ); ?>" />
+        </div>
     </div>
     <?php
         endif;
