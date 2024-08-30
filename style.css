@@ -240,11 +240,11 @@ body {
 		flex-direction: row;
 	}
 	.book-details {
-		flex: 0 0 40%;
+		flex: 0 0 45%;
 		margin-left: 20px;
 	}
 	.book-image {
-		flex: 0 0 50%;
+		flex: 0 0 35%;
 		max-width: 100%;
 	}
 	.book-image img {
